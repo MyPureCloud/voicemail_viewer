@@ -29,22 +29,10 @@
 		else
 			settingsCookie = JSON.parse(settingsCookie);
 
-		console.log(`1) environment: ${environment}`);
-		console.log(`1) clientId: ${clientId}`);
-		console.log(`1) redirectUrl: ${redirectUrl}`);
-		console.log(`1) settingsCookie: `);
-		console.log(settingsCookie);
-
-		if (environment) {
+		if (environment)
 			settingsCookie.environment = environment;
-		}
-		else {
-			console.log(`before: ${environment}`);
-			console.log(`before: ${settingsCookie.environment}`);
+		else 
 			environment = settingsCookie.environment;
-			console.log(`after: ${environment}`);
-			console.log(`after: ${settingsCookie.environment}`);
-		}
 
 		if (clientId)
 			settingsCookie.clientId = clientId;
@@ -52,14 +40,6 @@
 			clientId = settingsCookie.clientId;
 
 		Cookies.set(cookieName, settingsCookie);
-
-		console.log(`2) environment: ${environment}`);
-		console.log(`2) clientId: ${clientId}`);
-		console.log(`2) redirectUrl: ${redirectUrl}`);
-		console.log(`2) settingsCookie: ${settingsCookie}`);
-
-
-		//http://localhost:8080/?env=ininsca.com&clientId=3c40bce7-6ae0-4ff0-bf8c-50eb230fed64
 
 		const pureCloudSession = purecloud.platform.PureCloudSession({
 			timeout: 20000,
