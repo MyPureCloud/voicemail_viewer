@@ -187,6 +187,7 @@
 		function retryOnError(error, retryFunction) {
 			// Default to wait a second before retrying
 			var sleepMs = 1000;
+			var msg = '';
 
 			// Check for retryable status codes. 
 			// Set sleepMs to whatever is appropriate for the code.
@@ -195,13 +196,17 @@
 				case 429: {
 					// Get remaining seconds, convert to milliseconds, and add 1 second for good measure
 					sleepMs = (error.response.header['inin-ratelimit-reset'] * 1000) + 1000;
-					console.log(`RATE LIMITED! Sleeping for ${sleepMs} ms`);
+					msg = `API RATE LIMITED! Sleeping for ${sleepMs/1000} seconds before retrying`;
+					console.log(msg);
+					alert(msg);
 					break;
 				}
 				case 504: {
 					// Set timeout to 10 seconds. 504s usually take a few seconds to clear up.
 					sleepMs = 10 * 1000;
-					console.log(`504 Gateway Timeout - Sleeping for ${sleepMs} until retrying`);
+					msg = `API 504 Gateway Timeout - Sleeping for ${sleepMs/1000} seconds before retrying`;
+					console.log(msg);
+					alert(msg);
 					break;
 				}
 				default: {
@@ -241,13 +246,6 @@
 			// when everything has been downloaded, we can trigger the dl
 	        zip.generateAsync({type:"blob"}, function updateCallback(metadata) {
 	        	updateProgressBar(metadata.percent);
-
-	            var msg = "progression : " + metadata.percent.toFixed(2) + " %";
-	            if(metadata.currentFile) {
-	                msg += ", current file = " + metadata.currentFile;
-	            }
-	            //console.log(msg);
-	            //console.log(`Metadata percent: ${metadata.percent|0}`);
 	        })
 	        .then(function callback(blob) {
 	        	console.log('saving zip!');
