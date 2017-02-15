@@ -138,7 +138,6 @@
 
 			voicemailApi.getMeMessages(50, page)
 				.then((results) => {
-					getMedia(results.entities[0].id, recordingFormat);
 					// Aggregate results
 					if (!aggregateResults)
 						aggregateResults = results;
