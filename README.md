@@ -1,5 +1,6 @@
 # Voicemail Viewer
 
-An example application demonstrating how to retrieve voicemails for a user
+An example application demonstrating how to retrieve voicemails for a user. Try it out!
 
-[Genesys Employee Link](https://mypurecloud.github.io/voicemail_viewer/index.html?env=ininsca.com&clientId=3c40bce7-6ae0-4ff0-bf8c-50eb230fed64)
+* [mypurecloud.com](https://mypurecloud.github.io/voicemail_viewer/index.html)
+* [Genesys Employee Link](https://mypurecloud.github.io/voicemail_viewer/index.html?env=ininsca.com&clientId=3c40bce7-6ae0-4ff0-bf8c-50eb230fed64)
